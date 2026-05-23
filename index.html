@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Star Eye Care & Opticals – Premium Eye Care Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3a6b;
+    --blue: #1e4fa3;
+    --blue-bright: #2563eb;
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --white: #ffffff;
+    --off-white: #f4f6fb;
+    --gray: #8a96aa;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 8px 40px rgba(10,22,40,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+
+  /* ═══════════════════════════════ NAV ═══════════════════════════════ */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 70px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.6rem; cursor: pointer; }
+  .nav-logo svg { width: 38px; height: 38px; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; line-height: 1.1; color: var(--white); }
+  .nav-logo-text span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 0.25rem; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.75);
+    padding: 0.5rem 0.9rem; border-radius: 6px;
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+  .nav-links a.active { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    font-weight: 600; font-size: 0.85rem;
+    padding: 0.55rem 1.25rem; border-radius: 8px;
+    cursor: pointer; border: none; transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
+
+  /* ═══════════════════════════════ PAGES ════════════════════════════ */
+  .page { display: none; min-height: 100vh; padding-top: 70px; }
+  .page.active { display: block; }
+
+  /* ═══════════════════════════════ HERO ═════════════════════════════ */
+  .hero {
+    min-height: calc(100vh - 70px);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0d2a5e 100%);
+  }
+  .hero-bg-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+  }
+  .hero-orb-1 { width: 500px; height: 500px; background: rgba(37,99,235,0.18); top: -100px; right: 5%; }
+  .hero-orb-2 { width: 350px; height: 350px; background: rgba(201,168,76,0.1); bottom: 10%; left: 5%; }
+
+  .hero-inner {
+    max-width: 1280px; margin: 0 auto; padding: 4rem 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); font-size: 0.78rem; font-weight: 600;
+    padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1.5rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    animation: fadeInUp 0.6s ease both;
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.05;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.6s 0.1s ease both;
+  }
+  .hero-title .accent { color: var(--gold); }
+  .hero-subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.7;
+    margin-bottom: 2.5rem; font-weight: 300;
+    animation: fadeInUp 0.6s 0.2s ease both;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.6s 0.3s ease both; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    font-weight: 700; font-size: 0.95rem;
+    padding: 0.85rem 2rem; border-radius: 10px;
+    border: none; cursor: pointer; transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    font-weight: 500; font-size: 0.95rem;
+    padding: 0.85rem 2rem; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; animation: fadeInUp 0.6s 0.4s ease both; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeInUp 0.8s 0.2s ease both;
+  }
+  .hero-logo-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px; padding: 3rem 2.5rem; text-align: center;
+    backdrop-filter: blur(10px); position: relative; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .hero-logo-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue-bright), var(--gold));
+  }
+  .logo-main-icon { margin: 0 auto 1.5rem; display: flex; justify-content: center; }
+  .logo-main-icon svg { width: 100px; height: 100px; }
+  .logo-clinic-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700;
+    color: var(--white); line-height: 1.1; margin-bottom: 0.5rem;
+  }
+  .logo-clinic-name span { color: var(--gold); }
+  .logo-tagline { font-size: 0.85rem; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ═══════════════════════════════ FEATURES STRIP ══════════════════ */
+  .features-strip {
+    background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+  }
+  .features-strip-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  }
+  .feature-item { display: flex; align-items: center; gap: 0.9rem; padding: 0.75rem 1rem; }
+  .feature-icon { width: 40px; height: 40px; background: rgba(201,168,76,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; }
+  .feature-text strong { font-size: 0.9rem; display: block; margin-bottom: 0.1rem; }
+  .feature-text span { font-size: 0.78rem; color: var(--gray); }
+
+  /* ═══════════════════════════════ SECTION LAYOUTS ═════════════════ */
+  .section { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; margin-bottom: 1rem; }
+  .section-subtitle { font-size: 1rem; color: rgba(255,255,255,0.55); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+  /* ═══════════════════════════════ HOME SERVICE CARDS ══════════════ */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: var(--navy-mid); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem 1.75rem;
+    transition: all 0.3s; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, transparent 100%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .service-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.3); box-shadow: 0 16px 40px rgba(10,22,40,0.5); }
+  .service-card:hover::before { opacity: 1; }
+  .service-card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .service-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; }
+  .service-card-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; font-size: 0.85rem; font-weight: 600; color: var(--gold); cursor: pointer; }
+
+  /* ═══════════════════════════════ TESTIMONIALS ════════════════════ */
+  .testimonials-bg { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial-card {
+    background: var(--navy); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem;
+  }
+  .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .testimonial-text { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+  .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .author-name { font-size: 0.88rem; font-weight: 600; }
+  .author-since { font-size: 0.76rem; color: var(--gray); }
+
+  /* ═══════════════════════════════ SERVICES PAGE ═══════════════════ */
+  .services-page-hero {
+    background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+  .services-detailed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .service-detail-card {
+    background: var(--navy-mid); border: 1px solid var(--border); border-radius: 20px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .service-detail-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue-bright));
+  }
+  .service-detail-icon { font-size: 3rem; margin-bottom: 1.25rem; }
+  .service-detail-card h3 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .service-detail-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1.25rem; }
+  .service-features { list-style: none; }
+  .service-features li { font-size: 0.85rem; color: rgba(255,255,255,0.7); padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; }
+  .service-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
+  .service-price-tag {
+    display: inline-block; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.8rem;
+    border-radius: 20px; margin-top: 1rem; letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════ LENSES PAGE ══════════════════════ */
+  .lenses-controls {
+    background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px;
+    padding: 1.5rem; margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+  }
+  .filter-group { display: flex; align-items: center; gap: 0.6rem; }
+  .filter-label { font-size: 0.8rem; font-weight: 600; color: var(--gray); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+  .filter-btn {
+    font-size: 0.82rem; font-weight: 500; padding: 0.45rem 1rem; border-radius: 8px;
+    background: transparent; color: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 700; }
+  .filter-select {
+    font-size: 0.85rem; padding: 0.45rem 0.9rem; border-radius: 8px;
+    background: var(--navy); color: var(--white); border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer; font-family: 'DM Sans', sans-serif; outline: none;
+  }
+
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  .product-card {
+    background: var(--navy-mid); border: 1px solid var(--border); border-radius: 18px;
+    overflow: hidden; transition: all 0.3s;
+  }
+  .product-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.35); box-shadow: 0 20px 50px rgba(10,22,40,0.6); }
+  .product-card[data-hidden="true"] { display: none; }
+  .product-img {
+    height: 200px; background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .product-badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 700;
+    padding: 0.2rem 0.6rem; border-radius: 6px; letter-spacing: 0.04em;
+  }
+  .product-body { padding: 1.5rem; }
+  .product-brand { font-size: 0.72rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .product-name { font-size: 1.15rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; margin-bottom: 0.5rem; }
+  .product-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+  .product-price small { font-size: 0.8rem; font-family: 'DM Sans', sans-serif; color: var(--gray); font-weight: 400; }
+  .add-to-cart {
+    background: var(--blue-bright); color: var(--white); font-size: 0.82rem; font-weight: 600;
+    padding: 0.55rem 1.1rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .add-to-cart:hover { background: var(--blue); transform: scale(1.04); }
+
+  /* ═══════════════════════════════ CART SIDEBAR ════════════════════ */
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-sidebar {
+    position: fixed; right: 0; top: 0; bottom: 0; width: 420px; max-width: 100vw;
+    background: var(--navy-mid); border-left: 1px solid var(--border);
+    z-index: 2001; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    display: flex; flex-direction: column;
+  }
+  .cart-overlay.open .cart-sidebar { transform: translateX(0); }
+  .cart-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .cart-header h3 { font-size: 1.3rem; }
+  .cart-close { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; padding: 0.25rem; line-height: 1; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1.25rem; }
+  .cart-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .cart-item-img { font-size: 2rem; width: 60px; height: 60px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .cart-item-price { font-size: 0.85rem; color: var(--gold); }
+  .cart-item-remove { background: none; border: none; color: var(--gray); cursor: pointer; font-size: 1rem; transition: color 0.2s; }
+  .cart-item-remove:hover { color: #ef4444; }
+  .cart-empty { text-align: center; padding: 3rem 1rem; color: var(--gray); }
+  .cart-empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); }
+  .cart-total { display: flex; justify-content: space-between; font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; }
+  .cart-total span:last-child { color: var(--gold); font-size: 1.2rem; }
+  .btn-checkout { width: 100%; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 1rem; padding: 1rem; border-radius: 10px; border: none; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .btn-checkout:hover { background: var(--gold-light); }
+
+  /* ═══════════════════════════════ CART ICON ════════════════════════ */
+  .cart-btn {
+    position: relative; background: none; border: none; color: var(--white); cursor: pointer;
+    padding: 0.5rem; font-size: 1.3rem; transition: color 0.2s;
+  }
+  .cart-btn:hover { color: var(--gold); }
+  .cart-count {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--navy); font-size: 0.65rem; font-weight: 700;
+    width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ═══════════════════════════════ CHECKOUT PAGE ═══════════════════ */
+  .checkout-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start; }
+  .checkout-form { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+  .form-title { font-size: 1.6rem; margin-bottom: 2rem; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--navy); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+    color: var(--white); padding: 0.8rem 1rem; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color 0.2s; resize: vertical;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group select option { background: var(--navy); }
+  .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .payment-option { display: none; }
+  .payment-label {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    background: var(--navy); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px;
+    padding: 0.9rem 0.5rem; cursor: pointer; transition: all 0.2s; text-align: center;
+    font-size: 0.8rem; color: rgba(255,255,255,0.65);
+  }
+  .payment-option:checked + .payment-label { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+  .payment-label .pay-icon { font-size: 1.5rem; }
+  .btn-place-order { width: 100%; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 1rem; padding: 1rem; border-radius: 10px; border: none; cursor: pointer; margin-top: 1.5rem; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .btn-place-order:hover { background: var(--gold-light); }
+  .order-summary { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; position: sticky; top: 90px; }
+  .order-summary h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .summary-items { margin-bottom: 1.5rem; }
+  .summary-item { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .summary-item-name { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+  .summary-item-price { font-size: 0.88rem; color: var(--gold); font-weight: 600; }
+  .summary-totals { border-top: 1px solid var(--border); padding-top: 1rem; }
+  .summary-row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.4rem 0; }
+  .summary-row.total { font-size: 1.1rem; font-weight: 700; color: var(--gold); padding-top: 0.75rem; border-top: 1px solid var(--border); margin-top: 0.5rem; }
+
+  /* ═══════════════════════════════ BOOKING PAGE ════════════════════ */
+  .booking-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start; }
+  .booking-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .booking-info-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .booking-info-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .booking-info-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .booking-info-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+  .time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.75rem; }
+  .time-slot {
+    background: var(--navy); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+    padding: 0.55rem; text-align: center; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; color: rgba(255,255,255,0.75);
+  }
+  .time-slot:hover, .time-slot.selected { background: var(--gold); color: var(--navy); font-weight: 700; border-color: var(--gold); }
+
+  /* ═══════════════════════════════ ABOUT PAGE ══════════════════════ */
+  .about-hero { background: linear-gradient(135deg, var(--navy-mid), var(--navy)); padding: 5rem 0 4rem; border-bottom: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-visual { position: relative; }
+  .about-card {
+    background: var(--navy-mid); border: 1px solid var(--border); border-radius: 24px; padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--blue-bright), var(--gold)); }
+  .about-big-icon { font-size: 5rem; margin-bottom: 1.5rem; }
+  .about-card h3 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .about-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .team-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; text-align: center; }
+  .team-avatar { width: 70px; height: 70px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1rem; border: 2px solid rgba(201,168,76,0.3); }
+  .team-card h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .team-card span { font-size: 0.8rem; color: var(--gold); }
+  .team-card p { font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem; line-height: 1.5; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  .value-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; text-align: center; }
+  .value-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .value-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .value-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+
+  /* ═══════════════════════════════ CONTACT PAGE ════════════════════ */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; }
+  .contact-icon { width: 48px; height: 48px; background: rgba(201,168,76,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+  .contact-card h4 { font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .contact-card p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .contact-card a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .contact-card a:hover { color: var(--gold); }
+  .map-container { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .map-placeholder {
+    height: 300px; background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .map-placeholder iframe { width: 100%; height: 100%; border: none; }
+  .contact-form-section { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; }
+
+  /* ═══════════════════════════════ FOOTER ══════════════════════════ */
+  footer {
+    background: #050f1f; border-top: 1px solid var(--border);
+    padding: 4rem 0 2rem;
+  }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin: 1rem 0 1.5rem; max-width: 280px; }
+  .social-links { display: flex; gap: 0.75rem; }
+  .social-link {
+    width: 38px; height: 38px; background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; text-decoration: none; color: var(--gray); transition: all 0.2s; cursor: pointer;
+  }
+  .social-link:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .footer-col h4 { font-size: 0.82rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.55rem; }
+  .footer-col ul li a { font-size: 0.87rem; color: var(--gray); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-hours p { font-size: 0.87rem; color: var(--gray); padding: 0.35rem 0; }
+  .footer-hours p strong { color: rgba(255,255,255,0.8); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.75rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 0.82rem; color: var(--gray); }
+
+  /* ═══════════════════════════════ TOAST ════════════════════════════ */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 3000;
+    background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 14px; padding: 1rem 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    transform: translateY(100px) scale(0.9); opacity: 0;
+    transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    max-width: 320px; box-shadow: var(--shadow);
+  }
+  .toast.show { transform: translateY(0) scale(1); opacity: 1; }
+  .toast-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .toast-msg { font-size: 0.88rem; line-height: 1.4; }
+  .toast-msg strong { display: block; font-size: 0.92rem; margin-bottom: 0.15rem; }
+
+  /* ═══════════════════════════════ SUCCESS MODAL ═══════════════════ */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 4000;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal-box {
+    background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.3); border-radius: 24px;
+    padding: 3rem 2.5rem; text-align: center; max-width: 420px; width: 90%;
+    transform: scale(0.9); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .modal-overlay.open .modal-box { transform: scale(1); }
+  .modal-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .modal-box h3 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .modal-box p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+  .modal-close { background: var(--gold); color: var(--navy); font-weight: 700; padding: 0.8rem 2rem; border-radius: 10px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
+
+  /* ═══════════════════════════════ ANIMATIONS ══════════════════════ */
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ═══════════════════════════════ RESPONSIVE ══════════════════════ */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { display: none; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .services-detailed-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .checkout-grid { grid-template-columns: 1fr; }
+    .booking-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .cart-btn { display: flex; }
+  }
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .features-strip-inner { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .payment-methods { grid-template-columns: repeat(2, 1fr); }
+    .time-slots { grid-template-columns: repeat(2, 1fr); }
+    .checkout-grid, .booking-grid, .contact-grid { gap: 1.5rem; }
+    .section { padding: 3rem 1.25rem; }
+  }
+
+  /* Mobile Nav */
+  .mobile-nav {
+    position: fixed; top: 70px; left: 0; right: 0; z-index: 999;
+    background: var(--navy-mid); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;
+    transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all 0.3s;
+  }
+  .mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .mobile-nav a { font-size: 0.95rem; font-weight: 500; color: rgba(255,255,255,0.8); padding: 0.7rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; text-decoration: none; display: block; transition: color 0.2s; }
+  .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
+  .mobile-nav .mobile-cta { background: var(--gold); color: var(--navy); font-weight: 700; padding: 0.85rem; border-radius: 10px; text-align: center; margin-top: 0.5rem; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
+
+  /* Rating stars inline */
+  .stars-display { color: var(--gold); letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ NAVBAR ══════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="18" fill="#112240" stroke="#c9a84c" stroke-width="1.5"/>
+        <text x="19" y="24" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="700" fill="#c9a84c">5</text>
+        <polygon points="19,3 20.5,7.5 25,7.5 21.5,10 23,14.5 19,12 15,14.5 16.5,10 13,7.5 17.5,7.5" fill="#c9a84c" opacity="0.9"/>
+      </svg>
+      <div class="nav-logo-text"><span>5 Star</span> Eye Care<br>& Opticals</div>
+    </div>
+    <div class="nav-links">
+      <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+      <a onclick="showPage('services')" id="nav-services">Services</a>
+      <a onclick="showPage('lenses')" id="nav-lenses">Lenses</a>
+      <a onclick="showPage('booking')" id="nav-booking">Book Appointment</a>
+      <a onclick="showPage('about')" id="nav-about">About Us</a>
+      <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="cart-btn" onclick="toggleCart()" title="Shopping Cart">
+        🛒 <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <button class="nav-cta" onclick="showPage('booking')">Book Now</button>
+      <div class="hamburger" onclick="toggleMobileNav()" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a onclick="showPage('home');closeMobileNav()">🏠 Home</a>
+  <a onclick="showPage('services');closeMobileNav()">👁️ Services</a>
+  <a onclick="showPage('lenses');closeMobileNav()">👓 Lenses & Frames</a>
+  <a onclick="showPage('booking');closeMobileNav()">📅 Book Appointment</a>
+  <a onclick="showPage('about');closeMobileNav()">ℹ️ About Us</a>
+  <a onclick="showPage('contact');closeMobileNav()">📍 Contact</a>
+  <button class="mobile-cta" onclick="showPage('booking');closeMobileNav()">📅 Book Appointment</button>
+</div>
+
+<!-- ══════════════════════ HOME PAGE ══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">⭐ Premium Eye Care Since 2005</div>
+        <h1 class="hero-title">See the World<br>in <span class="accent">Clarity</span><br>& Style</h1>
+        <p class="hero-subtitle">Expert eye care and premium optical solutions at 5 Star Eye Care & Opticals. From comprehensive eye exams to designer frames — your vision is our mission.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('booking')">📅 Book Appointment</button>
+          <button class="btn-secondary" onclick="showPage('lenses')">🕶️ View Collection</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">5000+</div><div class="stat-label">Happy Patients</div></div>
+          <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Frame Styles</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-logo-card">
+          <div class="logo-main-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="#112240" stroke="#c9a84c" stroke-width="2"/>
+              <circle cx="50" cy="50" r="30" fill="none" stroke="#1e4fa3" stroke-width="8"/>
+              <circle cx="50" cy="50" r="14" fill="#2563eb"/>
+              <circle cx="50" cy="50" r="6" fill="#c9a84c"/>
+              <polygon points="50,6 53,16 64,16 55,22 58,32 50,26 42,32 45,22 36,16 47,16" fill="#c9a84c"/>
+            </svg>
+          </div>
+          <div class="logo-clinic-name"><span>5 Star</span> Eye Care<br>& Opticals</div>
+          <div class="logo-tagline">Premium Eye Care Solutions</div>
+          <div style="margin-top:1.5rem;display:flex;justify-content:center;gap:0.25rem;font-size:1.4rem;color:#c9a84c;">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Strip -->
+  <div class="features-strip">
+    <div class="features-strip-inner">
+      <div class="feature-item"><div class="feature-icon">👁️</div><div class="feature-text"><strong>Eye Checkups</strong><span>Comprehensive eye exams</span></div></div>
+      <div class="feature-item"><div class="feature-icon">👓</div><div class="feature-text"><strong>Premium Frames</strong><span>500+ designer styles</span></div></div>
+      <div class="feature-item"><div class="feature-icon">🔬</div><div class="feature-text"><strong>Expert Optometrists</strong><span>Qualified specialists</span></div></div>
+      <div class="feature-item"><div class="feature-icon">🚚</div><div class="feature-text"><strong>Home Delivery</strong><span>Free shipping ₹1000+</span></div></div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Comprehensive Eye Care</h2>
+      <p class="section-subtitle">From diagnosis to premium eyewear, we provide complete vision care solutions tailored for you.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-icon">👁️</div>
+        <h3>Eye Examination</h3>
+        <p>Thorough eye health assessments using state-of-the-art diagnostic equipment. Detect issues early and maintain perfect vision health.</p>
+        <div class="service-card-link" onclick="showPage('services')">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">👓</div>
+        <h3>Prescription Eyewear</h3>
+        <p>Hundreds of optical frames combined with precision lenses. Single vision, bifocal, progressive — all crafted to your exact prescription.</p>
+        <div class="service-card-link" onclick="showPage('lenses')">View Collection →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">🕶️</div>
+        <h3>Premium Sunglasses</h3>
+        <p>100% UV protection designer sunglasses. Fashion-forward styles paired with optical-grade lens technology for maximum clarity.</p>
+        <div class="service-card-link" onclick="showPage('lenses')">Shop Now →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">🔵</div>
+        <h3>Contact Lenses</h3>
+        <p>Daily, weekly, and monthly contact lenses from leading brands. Expert fitting guidance for first-time and experienced wearers.</p>
+        <div class="service-card-link" onclick="showPage('services')">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">⚕️</div>
+        <h3>Pediatric Eye Care</h3>
+        <p>Specialized vision care for children. Early detection of developmental issues ensures a lifetime of healthy vision.</p>
+        <div class="service-card-link" onclick="showPage('booking')">Book Now →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">🌟</div>
+        <h3>Premium Lens Coatings</h3>
+        <p>Anti-reflective, blue light blocking, scratch-resistant, and photochromic coatings to enhance your visual experience.</p>
+        <div class="service-card-link" onclick="showPage('services')">Learn More →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Testimonials -->
+  <div class="testimonials-bg">
+    <div class="section">
+      <div class="section-header">
+        <div class="section-tag">Testimonials</div>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <p class="section-subtitle">Trusted by thousands across the region for exceptional eye care and premium optical services.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Absolutely incredible service. The eye exam was thorough and the staff helped me pick frames that perfectly suit my face. I can see crystal clear now!"</p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:#1e4fa3">R</div><div><div class="author-name">Rajan Muthu</div><div class="author-since">Patient since 2020</div></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The best optical shop in the area. Premium quality frames at reasonable prices. The optometrist is highly qualified and explains everything clearly."</p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:#0d6efd">P</div><div><div class="author-name">Priya Sundaram</div><div class="author-since">Patient since 2019</div></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Got my child's first glasses here. The pediatric care is excellent. Very patient and professional team. Highly recommend to all families!"</p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:#155e75">A</div><div><div class="author-name">Anitha Krishnan</div><div class="author-since">Patient since 2022</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div style="background:linear-gradient(135deg,#1a3a6b,#0a1628);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div class="section" style="text-align:center;padding:4rem 2rem;">
+      <h2 style="font-size:clamp(2rem,3.5vw,3rem);margin-bottom:1rem;">Ready for <span style="color:var(--gold)">Clear Vision?</span></h2>
+      <p style="color:var(--gray);margin-bottom:2rem;font-size:1rem;">Book your comprehensive eye examination today. Walk-ins welcome.</p>
+      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="showPage('booking')">📅 Book Appointment</button>
+        <button class="btn-secondary" onclick="showPage('contact')">📞 Call Us Now</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end home page -->
+
+<!-- ══════════════════════ SERVICES PAGE ══════════════════════ -->
+<div class="page" id="page-services">
+  <div class="services-page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Our Expertise</div>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin:0.5rem 0 1rem">Premium Eye Care<br><span style="color:var(--gold)">Services</span></h1>
+      <p style="color:var(--gray);max-width:540px;margin:0 auto;line-height:1.7">Advanced optometric services delivered by experienced professionals with state-of-the-art equipment.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="services-detailed-grid">
+      <div class="service-detail-card">
+        <div class="service-detail-icon">👁️</div>
+        <h3>Comprehensive Eye Examination</h3>
+        <p>Full eye health assessment covering visual acuity, intraocular pressure, retinal health, and more. Essential for early detection of glaucoma, cataracts, and macular degeneration.</p>
+        <ul class="service-features">
+          <li>Visual acuity & refraction test</li>
+          <li>Slit lamp biomicroscopy</li>
+          <li>Tonometry (eye pressure)</li>
+          <li>Fundus examination</li>
+          <li>Color vision assessment</li>
+        </ul>
+        <div class="service-price-tag">From ₹500</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('booking')">Book Exam</button>
+      </div>
+      <div class="service-detail-card">
+        <div class="service-detail-icon">👓</div>
+        <h3>Prescription Eyewear</h3>
+        <p>Hundreds of frames paired with precision-cut lenses made to your exact prescription. From single vision to progressive multifocal lenses.</p>
+        <ul class="service-features">
+          <li>Single vision lenses</li>
+          <li>Bifocal lenses</li>
+          <li>Progressive/multifocal</li>
+          <li>Anti-reflective coatings</li>
+          <li>Blue light filtering</li>
+          <li>Photochromic (Transitions)</li>
+        </ul>
+        <div class="service-price-tag">From ₹1,200</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('lenses')">View Frames</button>
+      </div>
+      <div class="service-detail-card">
+        <div class="service-detail-icon">🔵</div>
+        <h3>Contact Lens Fitting</h3>
+        <p>Expert contact lens consultation and fitting for daily, monthly, and specialized lenses. We carry all major brands at competitive prices.</p>
+        <ul class="service-features">
+          <li>Initial fitting consultation</li>
+          <li>Trial lens fitting</li>
+          <li>Toric lenses for astigmatism</li>
+          <li>Multifocal contact lenses</li>
+          <li>Monthly supply packages</li>
+        </ul>
+        <div class="service-price-tag">From ₹300/month</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('booking')">Book Fitting</button>
+      </div>
+      <div class="service-detail-card">
+        <div class="service-detail-icon">👶</div>
+        <h3>Pediatric Eye Care</h3>
+        <p>Specialized vision examinations for children from age 3 onwards. Early detection of lazy eye, squint, and developmental vision problems.</p>
+        <ul class="service-features">
+          <li>Age-appropriate vision tests</li>
+          <li>Amblyopia (lazy eye) detection</li>
+          <li>Squint assessment</li>
+          <li>Child-friendly frames selection</li>
+          <li>Myopia management programs</li>
+        </ul>
+        <div class="service-price-tag">From ₹400</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('booking')">Book Now</button>
+      </div>
+      <div class="service-detail-card">
+        <div class="service-detail-icon">🌟</div>
+        <h3>Premium Lens Coatings</h3>
+        <p>Enhance the performance and longevity of your lenses with our range of advanced optical coatings tailored to your lifestyle.</p>
+        <ul class="service-features">
+          <li>Anti-reflective (AR) coating</li>
+          <li>Blue light protection</li>
+          <li>Scratch-resistant hardcoat</li>
+          <li>UV 400 protection</li>
+          <li>Hydrophobic & oleophobic</li>
+        </ul>
+        <div class="service-price-tag">From ₹350</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('lenses')">Explore Lenses</button>
+      </div>
+      <div class="service-detail-card">
+        <div class="service-detail-icon">🏥</div>
+        <h3>Low Vision Rehabilitation</h3>
+        <p>Specialized support for patients with vision loss from conditions like macular degeneration, diabetic retinopathy, and glaucoma.</p>
+        <ul class="service-features">
+          <li>Low vision assessment</li>
+          <li>Magnification device fitting</li>
+          <li>Adaptive strategies guidance</li>
+          <li>Specialist referral network</li>
+          <li>Follow-up care program</li>
+        </ul>
+        <div class="service-price-tag">Consultation ₹600</div>
+        <button class="btn-primary" style="margin-top:1.5rem;font-size:0.9rem;" onclick="showPage('booking')">Book Consultation</button>
+      </div>
+    </div>
+  </div>
+</div><!-- end services page -->
+
+<!-- ══════════════════════ LENSES PAGE ══════════════════════ -->
+<div class="page" id="page-lenses">
+  <div class="services-page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Eyewear Collection</div>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin:0.5rem 0 1rem">Frames, Lenses<br><span style="color:var(--gold)">&amp; Sunglasses</span></h1>
+      <p style="color:var(--gray);max-width:540px;margin:0 auto;line-height:1.7">Browse our curated collection of premium eyewear. Quality frames at every price point.</p>
+    </div>
+  </div>
+  <div class="section">
+
+    <!-- Filters -->
+    <div class="lenses-controls">
+      <div class="filter-group">
+        <span class="filter-label">Type:</span>
+        <button class="filter-btn active" onclick="filterProducts('type','all',this)">All</button>
+        <button class="filter-btn" onclick="filterProducts('type','optical',this)">Optical</button>
+        <button class="filter-btn" onclick="filterProducts('type','sunglasses',this)">Sunglasses</button>
+        <button class="filter-btn" onclick="filterProducts('type','lenses',this)">Lenses</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Brand:</span>
+        <select class="filter-select" onchange="filterProducts('brand',this.value,this)">
+          <option value="all">All Brands</option>
+          <option value="ray-ban">Ray-Ban</option>
+          <option value="titan">Titan</option>
+          <option value="lenskart">Lenskart</option>
+          <option value="essilor">Essilor</option>
+          <option value="oakley">Oakley</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Price:</span>
+        <button class="filter-btn" onclick="filterProducts('price','budget',this)">Under ₹2k</button>
+        <button class="filter-btn" onclick="filterProducts('price','mid',this)">₹2k–5k</button>
+        <button class="filter-btn" onclick="filterProducts('price','premium',this)">₹5k+</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+
+      <div class="product-card" data-type="optical" data-brand="titan" data-price="mid">
+        <div class="product-img">👓<span class="product-badge">Popular</span></div>
+        <div class="product-body">
+          <div class="product-brand">Titan</div>
+          <div class="product-name">Titan Aviator Classic</div>
+          <div class="product-desc">Premium acetate frame with spring hinges. Full-rim design suitable for all face shapes. Available in multiple colors.</div>
+          <div class="product-footer">
+            <div class="product-price">₹2,499 <small>incl. lenses</small></div>
+            <button class="add-to-cart" onclick="addToCart('Titan Aviator Classic','₹2,499','👓')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="sunglasses" data-brand="ray-ban" data-price="premium">
+        <div class="product-img">🕶️<span class="product-badge">Bestseller</span></div>
+        <div class="product-body">
+          <div class="product-brand">Ray-Ban</div>
+          <div class="product-name">Ray-Ban Wayfarer</div>
+          <div class="product-desc">Iconic acetate frame with G-15 glass lenses. 100% UV protection. Polarized option available.</div>
+          <div class="product-footer">
+            <div class="product-price">₹7,500 <small>UV protection</small></div>
+            <button class="add-to-cart" onclick="addToCart('Ray-Ban Wayfarer','₹7,500','🕶️')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="lenses" data-brand="essilor" data-price="premium">
+        <div class="product-img">🔵</div>
+        <div class="product-body">
+          <div class="product-brand">Essilor</div>
+          <div class="product-name">Varilux Comfort Max</div>
+          <div class="product-desc">Premium progressive lens with Nanoptix technology. Eliminates swim effect for smooth clear vision at all distances.</div>
+          <div class="product-footer">
+            <div class="product-price">₹9,800 <small>pair</small></div>
+            <button class="add-to-cart" onclick="addToCart('Varilux Comfort Max','₹9,800','🔵')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="optical" data-brand="lenskart" data-price="budget">
+        <div class="product-img">👓<span class="product-badge">New</span></div>
+        <div class="product-body">
+          <div class="product-brand">Lenskart</div>
+          <div class="product-name">Vincent Chase Round</div>
+          <div class="product-desc">Trendy round frame in lightweight TR-90 material. Anti-reflective lens coating included. Ideal for office use.</div>
+          <div class="product-footer">
+            <div class="product-price">₹1,499 <small>with AR coat</small></div>
+            <button class="add-to-cart" onclick="addToCart('Vincent Chase Round','₹1,499','👓')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="sunglasses" data-brand="oakley" data-price="premium">
+        <div class="product-img">🕶️</div>
+        <div class="product-body">
+          <div class="product-brand">Oakley</div>
+          <div class="product-name">Oakley Holbrook XL</div>
+          <div class="product-desc">Plutonite lens providing UV protection against UVA, UVB, and UVC rays. O-Matter frame material for durability.</div>
+          <div class="product-footer">
+            <div class="product-price">₹12,000 <small>polarized</small></div>
+            <button class="add-to-cart" onclick="addToCart('Oakley Holbrook XL','₹12,000','🕶️')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="lenses" data-brand="essilor" data-price="mid">
+        <div class="product-img">🔬<span class="product-badge">Blue Block</span></div>
+        <div class="product-body">
+          <div class="product-brand">Essilor</div>
+          <div class="product-name">Eyezen+ Digital Lens</div>
+          <div class="product-desc">Specifically designed for digital screen use. Reduces eye strain with embedded blue light filter and enhanced near-vision zone.</div>
+          <div class="product-footer">
+            <div class="product-price">₹3,200 <small>pair</small></div>
+            <button class="add-to-cart" onclick="addToCart('Eyezen+ Digital Lens','₹3,200','🔬')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="optical" data-brand="titan" data-price="mid">
+        <div class="product-img">👓</div>
+        <div class="product-body">
+          <div class="product-brand">Titan</div>
+          <div class="product-name">Titan Rimless Oval</div>
+          <div class="product-desc">Ultra-lightweight rimless frame with titanium nose bridge. Minimal, elegant design that complements any look.</div>
+          <div class="product-footer">
+            <div class="product-price">₹3,800 <small>incl. lenses</small></div>
+            <button class="add-to-cart" onclick="addToCart('Titan Rimless Oval','₹3,800','👓')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="sunglasses" data-brand="ray-ban" data-price="premium">
+        <div class="product-img">🕶️<span class="product-badge">Trending</span></div>
+        <div class="product-body">
+          <div class="product-brand">Ray-Ban</div>
+          <div class="product-name">Ray-Ban Clubmaster</div>
+          <div class="product-desc">Classic browline style with metal base and acetate trim. G-15 glass lenses with gradient option. Timeless fashion statement.</div>
+          <div class="product-footer">
+            <div class="product-price">₹8,500 <small>gradient</small></div>
+            <button class="add-to-cart" onclick="addToCart('Ray-Ban Clubmaster','₹8,500','🕶️')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-type="lenses" data-brand="lenskart" data-price="budget">
+        <div class="product-img">🔵<span class="product-badge">Value</span></div>
+        <div class="product-body">
+          <div class="product-brand">Lenskart</div>
+          <div class="product-name">Basic Bifocal Lens</div>
+          <div class="product-desc">Entry-level bifocal lens with clear distance and reading zones. Scratch-resistant coating. Ideal for first-time bifocal wearers.</div>
+          <div class="product-footer">
+            <div class="product-price">₹1,200 <small>pair</small></div>
+            <button class="add-to-cart" onclick="addToCart('Basic Bifocal Lens','₹1,200','🔵')">+ Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end lenses page -->
+
+<!-- ══════════════════════ CHECKOUT PAGE ══════════════════════ -->
+<div class="page" id="page-checkout">
+  <div class="services-page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Secure Checkout</div>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:600;margin:0.5rem 0">Complete Your <span style="color:var(--gold)">Order</span></h1>
+    </div>
+  </div>
+  <div class="section">
+    <div class="checkout-grid">
+      <div class="checkout-form">
+        <h2 class="form-title">📦 Delivery Details</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" placeholder="Your full name" id="co-name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="+91 99999 00000" id="co-phone">
+          </div>
+          <div class="form-group full">
+            <label>Email Address *</label>
+            <input type="email" placeholder="your@email.com" id="co-email">
+          </div>
+          <div class="form-group full">
+            <label>Delivery Address *</label>
+            <textarea rows="3" placeholder="Street, Area, City, State, PIN" id="co-address"></textarea>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" placeholder="City" id="co-city">
+          </div>
+          <div class="form-group">
+            <label>PIN Code</label>
+            <input type="text" placeholder="600001" id="co-pin">
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <label style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);letter-spacing:0.04em;display:block;margin-bottom:0.75rem;">Payment Method *</label>
+          <div class="payment-methods">
+            <div>
+              <input type="radio" name="payment" id="pay-upi" class="payment-option" value="UPI" checked>
+              <label for="pay-upi" class="payment-label"><span class="pay-icon">📱</span>UPI</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" id="pay-card" class="payment-option" value="Card">
+              <label for="pay-card" class="payment-label"><span class="pay-icon">💳</span>Card</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" id="pay-cod" class="payment-option" value="COD">
+              <label for="pay-cod" class="payment-label"><span class="pay-icon">💵</span>Cash on Delivery</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" id="pay-netbank" class="payment-option" value="Net Banking">
+              <label for="pay-netbank" class="payment-label"><span class="pay-icon">🏦</span>Net Banking</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" id="pay-wallet" class="payment-option" value="Wallet">
+              <label for="pay-wallet" class="payment-label"><span class="pay-icon">👛</span>Wallet</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" id="pay-emi" class="payment-option" value="EMI">
+              <label for="pay-emi" class="payment-label"><span class="pay-icon">📊</span>EMI</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:1.5rem;">
+          <label>Special Instructions (optional)</label>
+          <textarea rows="2" placeholder="Any special instructions for your order..."></textarea>
+        </div>
+
+        <button class="btn-place-order" onclick="placeOrder()">🛒 Place Order</button>
+      </div>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-items" id="summaryItems">
+          <p style="color:var(--gray);font-size:0.88rem;text-align:center;padding:1rem 0;">No items in cart</p>
+        </div>
+        <div class="summary-totals">
+          <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">₹0</span></div>
+          <div class="summary-row"><span>Shipping</span><span style="color:#4ade80">Free</span></div>
+          <div class="summary-row total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end checkout page -->
+
+<!-- ══════════════════════ BOOKING PAGE ══════════════════════ -->
+<div class="page" id="page-booking">
+  <div class="services-page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Easy Scheduling</div>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin:0.5rem 0 1rem">Book Your <span style="color:var(--gold)">Appointment</span></h1>
+      <p style="color:var(--gray);max-width:500px;margin:0 auto;line-height:1.7">Schedule a comprehensive eye examination with our expert optometrists. Same-day appointments available.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="booking-grid">
+      <div class="checkout-form">
+        <h2 class="form-title">📅 Appointment Details</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" placeholder="Your full name" id="bk-name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="+91 99999 00000" id="bk-phone">
+          </div>
+          <div class="form-group full">
+            <label>Email Address *</label>
+            <input type="email" placeholder="your@email.com" id="bk-email">
+          </div>
+          <div class="form-group">
+            <label>Preferred Date *</label>
+            <input type="date" id="bk-date">
+          </div>
+          <div class="form-group">
+            <label>Service Type</label>
+            <select id="bk-service">
+              <option>Comprehensive Eye Exam</option>
+              <option>Prescription Update</option>
+              <option>Contact Lens Fitting</option>
+              <option>Pediatric Eye Exam</option>
+              <option>Frame Selection</option>
+              <option>Low Vision Consultation</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Notes / Symptoms (optional)</label>
+            <textarea rows="3" id="bk-notes" placeholder="Describe any vision issues or symptoms you've been experiencing..."></textarea>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <label style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);letter-spacing:0.04em;display:block;margin-bottom:0.75rem;">Choose Time Slot *</label>
+          <div class="time-slots" id="timeSlots">
+            <div class="time-slot" onclick="selectTime(this)">9:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">9:30 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">10:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">10:30 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">11:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">11:30 AM</div>
+            <div class="time-slot" onclick="selectTime(this)">2:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this)">2:30 PM</div>
+            <div class="time-slot" onclick="selectTime(this)">3:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this)">3:30 PM</div>
+            <div class="time-slot" onclick="selectTime(this)">4:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this)">4:30 PM</div>
+          </div>
+        </div>
+        <button class="btn-place-order" onclick="bookAppointment()" style="margin-top:2rem;">📅 Confirm Appointment</button>
+      </div>
+
+      <div class="booking-info">
+        <div class="booking-info-card">
+          <div class="booking-info-icon">⏰</div>
+          <div>
+            <h4>Clinic Hours</h4>
+            <p>Monday – Saturday: 9:00 AM – 6:30 PM<br>Sunday: 10:00 AM – 3:00 PM<br>Public Holidays: Call ahead</p>
+          </div>
+        </div>
+        <div class="booking-info-card">
+          <div class="booking-info-icon">📋</div>
+          <div>
+            <h4>What to Bring</h4>
+            <p>Previous prescription (if any)<br>Current glasses/contact lenses<br>List of medications<br>Insurance details (if applicable)</p>
+          </div>
+        </div>
+        <div class="booking-info-card">
+          <div class="booking-info-icon">✉️</div>
+          <div>
+            <h4>Confirmation</h4>
+            <p>You will receive a confirmation email and SMS with your appointment details within 15 minutes of booking.</p>
+          </div>
+        </div>
+        <div class="booking-info-card">
+          <div class="booking-info-icon">📞</div>
+          <div>
+            <h4>Need Help?</h4>
+            <p>Call us at <a href="tel:+919876543210" style="color:var(--gold)">+91 98765 43210</a><br>or WhatsApp: <a href="tel:+919876543210" style="color:var(--gold)">+91 98765 43210</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end booking page -->
+
+<!-- ══════════════════════ ABOUT PAGE ══════════════════════ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Our Story</div>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin:0.5rem 0 1rem">About <span style="color:var(--gold)">5 Star Eye Care</span></h1>
+      <p style="color:var(--gray);max-width:540px;margin:0 auto;line-height:1.7">Two decades of trusted eye care in the community. Our commitment to excellence has made us the region's premier optical destination.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">Who We Are</div>
+        <h2 style="font-size:clamp(2rem,3.5vw,3rem);margin:0.5rem 0 1.5rem">Dedicated to Your <span style="color:var(--gold)">Vision</span></h2>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:1.25rem;font-size:0.95rem">Founded in 2005, 5 Star Eye Care & Opticals has grown from a small neighborhood optical shop to the region's most trusted eye care destination. We combine clinical excellence with a warm, patient-centered approach.</p>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:2rem;font-size:0.95rem">Our team of qualified optometrists, optical dispensers, and support staff work together to ensure every patient receives the best possible care — from routine eye examinations to complex vision solutions.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div style="background:var(--navy-mid);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold);">2005</div><div style="font-size:0.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;">Est. Year</div></div>
+          <div style="background:var(--navy-mid);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold);">5★</div><div style="font-size:0.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;">Rating</div></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:1.75rem;">
+          <h4 style="font-size:1.1rem;color:var(--gold);margin-bottom:0.75rem;">🎯 Our Mission</h4>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.7;font-style:italic;">"To provide accessible, high-quality eye care and premium optical products to every patient, ensuring their vision, comfort, and confidence through compassionate, expert service."</p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-big-icon">👁️</div>
+          <h3>Premium Eye Care</h3>
+          <p>State-of-the-art diagnostic equipment paired with compassionate expertise. Your eye health is our highest priority.</p>
+          <div style="display:flex;justify-content:center;gap:0.25rem;margin-top:1.5rem;font-size:1.5rem;color:var(--gold);">★★★★★</div>
+          <div style="font-size:0.8rem;color:var(--gray);margin-top:0.5rem;">Rated 5 stars by 1,200+ reviews</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <div class="section-header">
+        <div class="section-tag">Our Team</div>
+        <h2 class="section-title">Meet the Specialists</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👨‍⚕️</div>
+          <h4>Dr. Suresh Kumar</h4>
+          <span>Chief Optometrist</span>
+          <p>M.Optom, 18 years experience. Specialist in complex prescriptions and pediatric vision care.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👩‍⚕️</div>
+          <h4>Dr. Meena Rajan</h4>
+          <span>Senior Optometrist</span>
+          <p>B.Optom, 12 years experience. Expert in contact lens fitting and low vision rehabilitation.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💼</div>
+          <h4>Mr. Karthik Pillai</h4>
+          <span>Optical Dispenser</span>
+          <p>FBDO qualified. 10+ years helping patients choose the perfect frame and lens combination.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <div class="section-header">
+        <div class="section-tag">Our Values</div>
+        <h2 class="section-title">What Guides Us</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">🎯</div><h4>Precision</h4><p>Meticulous attention to every prescription and fitting for perfect visual outcomes.</p></div>
+        <div class="value-card"><div class="value-icon">💙</div><h4>Compassion</h4><p>Patient-first approach. We listen, understand, and deliver personalized care.</p></div>
+        <div class="value-card"><div class="value-icon">🌟</div><h4>Excellence</h4><p>Constantly upgrading skills and technology to offer the best possible eye care.</p></div>
+        <div class="value-card"><div class="value-icon">🤝</div><h4>Integrity</h4><p>Transparent pricing, honest advice. We recommend only what you truly need.</p></div>
+      </div>
+    </div>
+  </div>
+</div><!-- end about page -->
+
+<!-- ══════════════════════ CONTACT PAGE ══════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="services-page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Get In Touch</div>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin:0.5rem 0 1rem">Contact <span style="color:var(--gold)">Us</span></h1>
+      <p style="color:var(--gray);max-width:500px;margin:0 auto;line-height:1.7">We're here to help. Reach out for appointments, product inquiries, or any questions about your eye care.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Our Address</h4>
+            <p>No. 42, Main Bazaar Street<br>Near Bus Stand, Tondi<br>Ramanathapuram District<br>Tamil Nadu – 623 409</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone & WhatsApp</h4>
+            <p><a href="tel:+919876543210">+91 98765 43210</a> (Primary)<br><a href="tel:+914567891234">04567 – 891234</a> (Landline)<br>WhatsApp: <a href="https://wa.me/919876543210">+91 98765 43210</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:info@5stareyecare.in">info@5stareyecare.in</a><br><a href="mailto:appointments@5stareyecare.in">appointments@5stareyecare.in</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <h4>Working Hours</h4>
+            <p><strong style="color:rgba(255,255,255,0.85)">Mon–Sat:</strong> 9:00 AM – 6:30 PM<br><strong style="color:rgba(255,255,255,0.85)">Sunday:</strong> 10:00 AM – 3:00 PM<br><strong style="color:rgba(255,255,255,0.85)">Holidays:</strong> Call ahead</p>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div style="font-size:3rem">🗺️</div>
+            <div style="text-align:center;padding:0 2rem;">
+              <strong style="display:block;margin-bottom:0.5rem;">5 Star Eye Care & Opticals</strong>
+              <p style="font-size:0.85rem;color:var(--gray)">No. 42, Main Bazaar Street, Near Bus Stand, Tondi, Tamil Nadu – 623 409</p>
+              <a href="https://maps.google.com/?q=Tondi,Tamil+Nadu" target="_blank" style="display:inline-block;margin-top:1rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:0.82rem;padding:0.6rem 1.4rem;border-radius:8px;text-decoration:none;">Open in Google Maps ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-form-section">
+          <h3 style="font-size:1.5rem;margin-bottom:1.75rem;">Send us a Message</h3>
+          <div style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Full name" id="ct-name">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="+91 99999 00000" id="ct-phone">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" id="ct-email">
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select id="ct-subject">
+                <option>General Inquiry</option>
+                <option>Appointment Request</option>
+                <option>Product Inquiry</option>
+                <option>Order Status</option>
+                <option>Feedback / Complaint</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" placeholder="How can we help you?" id="ct-message"></textarea>
+            </div>
+            <button class="btn-primary" style="width:100%;padding:1rem;font-size:1rem;" onclick="sendMessage()">📤 Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end contact page -->
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0.75rem;">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:38px;height:38px">
+            <circle cx="19" cy="19" r="18" fill="#112240" stroke="#c9a84c" stroke-width="1.5"/>
+            <text x="19" y="24" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="700" fill="#c9a84c">5</text>
+            <polygon points="19,3 20.5,7.5 25,7.5 21.5,10 23,14.5 19,12 15,14.5 16.5,10 13,7.5 17.5,7.5" fill="#c9a84c" opacity="0.9"/>
+          </svg>
+          <div class="nav-logo-text"><span>5 Star</span> Eye Care<br>& Opticals</div>
+        </div>
+        <p>Premium Eye Care Solutions for your family. Expert optometrists, designer frames, and advanced eye health services — all under one roof in Tondi, Tamil Nadu.</p>
+        <div class="social-links">
+          <a class="social-link" title="Facebook">𝐟</a>
+          <a class="social-link" title="Instagram">📸</a>
+          <a class="social-link" title="WhatsApp">💬</a>
+          <a class="social-link" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('services')">Our Services</a></li>
+          <li><a onclick="showPage('lenses')">Lenses & Frames</a></li>
+          <li><a onclick="showPage('booking')">Book Appointment</a></li>
+          <li><a onclick="showPage('about')">About Us</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a>Eye Examinations</a></li>
+          <li><a>Prescription Eyewear</a></li>
+          <li><a>Contact Lenses</a></li>
+          <li><a>Pediatric Eye Care</a></li>
+          <li><a>Sunglasses</a></li>
+          <li><a>Lens Coatings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-hours">
+        <h4>Working Hours</h4>
+        <p><strong>Monday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Tuesday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Wednesday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Thursday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Friday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Saturday</strong> 9:00 AM – 6:30 PM</p>
+        <p><strong>Sunday</strong> 10:00 AM – 3:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 5 Star Eye Care & Opticals. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.35)">Premium Eye Care Solutions · Tondi, Tamil Nadu</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════ CART SIDEBAR ══════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOnOverlay(event)">
+  <div class="cart-sidebar">
+    <div class="cart-header">
+      <h3>🛒 Shopping Cart</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Your cart is empty.<br>Add eyewear to get started!</p></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      <button class="btn-checkout" onclick="goToCheckout()">Proceed to Checkout →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ TOAST ══════════════════════ -->
+<div class="toast" id="toast">
+  <div class="toast-icon" id="toastIcon">✅</div>
+  <div class="toast-msg" id="toastMsg"><strong></strong><span></span></div>
+</div>
+
+<!-- ══════════════════════ SUCCESS MODAL ══════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-icon" id="modalIcon">✅</div>
+    <h3 id="modalTitle">Success!</h3>
+    <p id="modalMsg">Your action was completed successfully.</p>
+    <button class="modal-close" onclick="closeModal()">Done</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════ STATE ══════════════════════
+let cart = [];
+let selectedTime = '';
+let activeFilters = { type: 'all', brand: 'all', price: 'all' };
+
+// ══════════════════════ NAVIGATION ══════════════════════
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + pageId)?.classList.add('active');
+  document.getElementById('nav-' + pageId)?.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (pageId === 'checkout') updateOrderSummary();
+}
+
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// Close mobile nav on outside click
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mobileNav');
+  const hamburger = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+    closeMobileNav();
+  }
+});
+
+// ══════════════════════ PRODUCT FILTERS ══════════════════════
+function filterProducts(filterType, value, el) {
+  activeFilters[filterType] = value;
+
+  // Update button states
+  if (el && el.tagName === 'BUTTON') {
+    const group = el.closest('.filter-group');
+    if (group) group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  const products = document.querySelectorAll('.product-card');
+  products.forEach(card => {
+    const typeMatch = activeFilters.type === 'all' || card.dataset.type === activeFilters.type;
+    const brandMatch = activeFilters.brand === 'all' || card.dataset.brand === activeFilters.brand;
+    const priceMatch = activeFilters.price === 'all' || card.dataset.price === activeFilters.price;
+    card.dataset.hidden = !(typeMatch && brandMatch && priceMatch);
+    card.style.display = (typeMatch && brandMatch && priceMatch) ? '' : 'none';
+  });
+}
+
+// ══════════════════════ CART ══════════════════════
+function addToCart(name, price, icon) {
+  const existing = cart.find(i => i.name === name);
+  if (existing) {
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    cart.push({ name, price, icon, qty: 1 });
+  }
+  updateCartUI();
+  showToast('✅', 'Added to Cart', name + ' has been added to your cart');
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  const count = cart.reduce((sum, i) => sum + (i.qty || 1), 0);
+  const countEl = document.getElementById('cartCount');
+  if (count > 0) {
+    countEl.textContent = count;
+    countEl.style.display = 'flex';
+  } else {
+    countEl.style.display = 'none';
+  }
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItemsContainer');
+  const footer = document.getElementById('cartFooter');
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Your cart is empty.<br>Add eyewear to get started!</p></div>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  container.innerHTML = cart.map((item, i) => `
+    <div class="cart-item">
+      <div class="cart-item-img">${item.icon}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${item.price} ${item.qty > 1 ? `<span style="font-size:0.75rem;color:var(--gray)">× ${item.qty}</span>` : ''}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
+    </div>
+  `).join('');
+  document.getElementById('cartTotal').textContent = getCartTotal();
+}
+
+function getCartTotal() {
+  let total = 0;
+  cart.forEach(item => {
+    const num = parseInt(item.price.replace(/[^0-9]/g, ''));
+    total += num * (item.qty || 1);
+  });
+  return '₹' + total.toLocaleString('en-IN');
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+function closeCartOnOverlay(e) {
+  if (e.target === document.getElementById('cartOverlay')) toggleCart();
+}
+
+function goToCheckout() {
+  toggleCart();
+  showPage('checkout');
+}
+
+function updateOrderSummary() {
+  const el = document.getElementById('summaryItems');
+  if (cart.length === 0) {
+    el.innerHTML = '<p style="color:var(--gray);font-size:0.88rem;text-align:center;padding:1rem 0;">No items in cart</p>';
+    document.getElementById('summarySubtotal').textContent = '₹0';
+    document.getElementById('summaryTotal').textContent = '₹0';
+    return;
+  }
+  el.innerHTML = cart.map(item => `
+    <div class="summary-item">
+      <div class="summary-item-name">${item.icon} ${item.name} ${item.qty > 1 ? '× ' + item.qty : ''}</div>
+      <div class="summary-item-price">${item.price}</div>
+    </div>
+  `).join('');
+  const total = getCartTotal();
+  document.getElementById('summarySubtotal').textContent = total;
+  document.getElementById('summaryTotal').textContent = total;
+}
+
+// ══════════════════════ TIME SLOTS ══════════════════════
+function selectTime(el) {
+  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTime = el.textContent;
+}
+
+// ══════════════════════ FORMS ══════════════════════
+function placeOrder() {
+  const name = document.getElementById('co-name').value.trim();
+  const phone = document.getElementById('co-phone').value.trim();
+  const email = document.getElementById('co-email').value.trim();
+  const address = document.getElementById('co-address').value.trim();
+  if (!name || !phone || !email || !address) {
+    showToast('⚠️', 'Missing Details', 'Please fill in all required fields');
+    return;
+  }
+  if (cart.length === 0) {
+    showToast('⚠️', 'Empty Cart', 'Please add items to your cart first');
+    return;
+  }
+  const payment = document.querySelector('input[name="payment"]:checked')?.value || 'UPI';
+  showModal('🎉', 'Order Placed!', `Thank you ${name}! Your order has been confirmed.\n\nWe'll send a confirmation to ${email}.\nPayment: ${payment}\nExpected delivery: 5–7 working days.`);
+  cart = [];
+  updateCartUI();
+}
+
+function bookAppointment() {
+  const name = document.getElementById('bk-name').value.trim();
+  const phone = document.getElementById('bk-phone').value.trim();
+  const email = document.getElementById('bk-email').value.trim();
+  const date = document.getElementById('bk-date').value;
+  if (!name || !phone || !email || !date || !selectedTime) {
+    showToast('⚠️', 'Missing Details', 'Please fill all fields and select a time slot');
+    return;
+  }
+  const service = document.getElementById('bk-service').value;
+  const dateFormatted = new Date(date).toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  showModal('📅', 'Appointment Confirmed!', `Hi ${name}! Your appointment is confirmed.\n\n📋 Service: ${service}\n📅 Date: ${dateFormatted}\n⏰ Time: ${selectedTime}\n\nA confirmation has been sent to ${email}.`);
+}
+
+function sendMessage() {
+  const name = document.getElementById('ct-name').value.trim();
+  const message = document.getElementById('ct-message').value.trim();
+  if (!name || !message) {
+    showToast('⚠️', 'Missing Details', 'Please enter your name and message');
+    return;
+  }
+  showModal('✉️', 'Message Sent!', `Thank you ${name}! We've received your message and will get back to you within 24 hours.\n\nFor urgent inquiries, call us at +91 98765 43210.`);
+  document.getElementById('ct-name').value = '';
+  document.getElementById('ct-message').value = '';
+}
+
+// ══════════════════════ TOAST ══════════════════════
+let toastTimer;
+function showToast(icon, title, msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastIcon').textContent = icon;
+  document.getElementById('toastMsg').innerHTML = `<strong>${title}</strong><span style="display:block;font-size:0.8rem;color:var(--gray);margin-top:0.1rem">${msg}</span>`;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ══════════════════════ MODAL ══════════════════════
+function showModal(icon, title, msg) {
+  document.getElementById('modalIcon').textContent = icon;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalMsg').textContent = msg;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// Set min date for booking
+const dateInput = document.getElementById('bk-date');
+if (dateInput) {
+  const today = new Date();
+  dateInput.min = today.toISOString().split('T')[0];
+  today.setDate(today.getDate() + 1);
+  dateInput.value = today.toISOString().split('T')[0];
+}
+</script>
+</body>
+</html>
